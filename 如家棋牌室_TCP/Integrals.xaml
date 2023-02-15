@@ -1,0 +1,79 @@
+﻿<Page x:Class="如家棋牌室_TCP.Integrals"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d" FontFamily="Microsoft YaHei" Loaded="Page_Loaded">
+    <DockPanel>
+        <StackPanel Height="60" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Bottom">
+            <Button Name="Bt_Exchange" Width="150" IsEnabled="False" Click="Bt_Exchange_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/PNG/Ok_64px.png"/>
+                    <TextBlock Text="兑换"/>
+                </StackPanel>
+            </Button>
+            <Button Name="Bt_Close" Width="150" Click="Bt_Close_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/PNG/Close_64px.png"/>
+                    <TextBlock Text="关闭"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <DockPanel>
+            <ListView Name="lvIntegrals" Background="LightGray" ItemsSource="{Binding}" Width="510">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Background="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="170"/>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="60"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding Tel}" Foreground="Red" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding DateTime}" HorizontalAlignment="Center" Grid.Column="1"/>
+                            <TextBlock Text="{Binding Integral_Before}" HorizontalAlignment="Center" Grid.Column="2"/>
+                            <TextBlock Text="{Binding Integral_After}" HorizontalAlignment="Center" Grid.Column="3"/>
+                            <TextBlock Text="{Binding Type}" Foreground="Red" HorizontalAlignment="Center" Grid.Column="4"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListView>
+            <ListView Name="lvExchange" Background="LightGray" ItemsSource="{Binding}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Background="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="80"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding Tel}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Integral}" Foreground="Red" HorizontalAlignment="Center" Grid.Column="1"/>
+                            <TextBlock Text="{Binding Last_Date}" HorizontalAlignment="Center" Grid.Column="2"/>
+                            <TextBlock Text="{Binding Last_Expend}" HorizontalAlignment="Center" Grid.Column="3"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListView>
+        </DockPanel>
+    </DockPanel>
+</Page>

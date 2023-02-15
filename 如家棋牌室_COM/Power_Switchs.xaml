@@ -1,0 +1,63 @@
+﻿<Page x:Class="如家棋牌室_COM.Power_Switchs"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d" FontFamily="Microsoft YaHei" Loaded="Page_Loaded">
+    <DockPanel>
+        <StackPanel Height="60" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Bottom">
+            <Button Name="btReload" Width="150" Click="BtReload_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/PNG/Reload_64px.png"/>
+                    <TextBlock Text="刷新"/>
+                </StackPanel>
+            </Button>
+            <Button Name="Bt_Close" Width="150" Click="Bt_Close_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/PNG/Close_64px.png"/>
+                    <TextBlock Text="关闭"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <ListView Name="lvRooms" ItemsSource="{Binding}" Background="LightGray" Width="605" MouseLeftButtonUp="LvRooms_MouseLeftButtonUp">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Background="{Binding Background}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="134"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="145"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{Binding Name}" FontSize="60" HorizontalAlignment="Center" Foreground="White"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListView>
+        <ListView Name="lvSwitchs" ItemsSource="{Binding}" Background="LightGray" MouseLeftButtonUp="LvSwitchs_MouseLeftButtonUp">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Background="{Binding Background}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="115"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="110"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{Binding Name}" FontSize="60" HorizontalAlignment="Center" Foreground="White"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListView>
+    </DockPanel>
+</Page>

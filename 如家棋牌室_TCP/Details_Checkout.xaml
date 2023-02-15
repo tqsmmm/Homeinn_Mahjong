@@ -1,0 +1,143 @@
+﻿<Page x:Class="如家棋牌室_TCP.Details_Checkout"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d" FontFamily="Microsoft YaHei" Loaded="Window_Loaded">
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Right" Background="LightGray">
+            <StackPanel HorizontalAlignment="Center">
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="开始时间：" FontSize="25"/>
+                    <TextBlock Name="tbStart" Foreground="Red" FontSize="25" Grid.Column="1"/>
+
+                    <TextBlock Text="消费时间：" FontSize="25" Grid.Row="1"/>
+                    <TextBlock Name="tbExpend" Foreground="Red" FontSize="25" Grid.Row="1" Grid.Column="1"/>
+
+                    <TextBlock Text="应收款：" FontSize="25" Grid.Row="2"/>
+                    <TextBlock Name="tbAmount_YS" Foreground="Red" FontSize="25" Text="0.00" Grid.Row="2" Grid.Column="1"/>
+
+                    <TextBlock Text="实收款：" FontSize="25" Grid.Row="3"/>
+                    <TextBlock Name="tbAmount_SS" Foreground="Red" FontSize="25" Text="0.00" Grid.Row="3" Grid.Column="1"/>
+                </Grid>
+                <StackPanel Orientation="Horizontal" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button Name="bt_OverNight" Width="135" Click="Bt_OverNight_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/PNG/OverNight_64px.png"/>
+                            <TextBlock Text="包夜"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Name="bt_MeiTuan" Width="135" Click="Bt_MeiTuan_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/PNG/Meituan_64px.png"/>
+                            <TextBlock Text="美团"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Name="bt_Timing" Width="135" Click="Bt_Timing_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/PNG/Timing_64px.png"/>
+                            <TextBlock Text="计时"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                    </Grid.RowDefinitions>
+                    <Button Name="bt_Exempt" Content="免单" Click="Bt_Exempt_Click"/>
+                    <Button Name="bt_30" Content="30" Grid.Row="1" Click="Bt_30_Click"/>
+                    <Button Name="bt_40" Content="40" Grid.Row="2" Click="Bt_40_Click"/>
+                    <Button Name="bt_50" Content="50" Grid.Row="3" Click="Bt_50_Click"/>
+
+                    <Button Name="bt_1" Content="1" Grid.Column="1" Click="Bt_1_Click"/>
+                    <Button Name="bt_2" Content="2" Grid.Column="2" Click="Bt_2_Click"/>
+                    <Button Name="bt_3" Content="3" Grid.Column="3" Click="Bt_3_Click"/>
+                    <Button Name="bt_4" Content="4" Grid.Row="1" Grid.Column="1" Click="Bt_4_Click"/>
+                    <Button Name="bt_5" Content="5" Grid.Row="1" Grid.Column="2" Click="Bt_5_Click"/>
+                    <Button Name="bt_6" Content="6" Grid.Row="1" Grid.Column="3" Click="Bt_6_Click"/>
+                    <Button Name="bt_7" Content="7" Grid.Row="2" Grid.Column="1" Click="Bt_7_Click"/>
+                    <Button Name="bt_8" Content="8" Grid.Row="2" Grid.Column="2" Click="Bt_8_Click"/>
+                    <Button Name="bt_9" Content="9" Grid.Row="2" Grid.Column="3" Click="Bt_9_Click"/>
+                    <Button Name="bt_0" Content="0" Grid.Row="3" Grid.Column="1" Click="Bt_0_Click"/>
+                    <Button Name="bt_Dot" Content="." Grid.Row="3" Grid.Column="2" Click="Bt_Dot_Click"/>
+                    <Button Name="bt_Clear" Content="C" Grid.Row="3" Grid.Column="3" Click="Bt_Clear_Click"/>
+
+                    <Button Name="bt_Close" Content="关闭" Grid.Row="4" Click="Bt_Close_Click"/>
+                    <Button Name="bt_CheckOut" Content="结账" IsEnabled="False" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" Click="Bt_CheckOut_Click"/>
+                </Grid>
+            </StackPanel>
+        </DockPanel>
+        <DockPanel Background="LightGray">
+            <WrapPanel DockPanel.Dock="Top" Background="White">
+                <TextBlock Text="房间：" FontSize="30"/>
+                <TextBlock Name="tbRooms" Foreground="Red" FontSize="30"/>
+            </WrapPanel>
+            <Grid Background="White" DockPanel.Dock="Bottom">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="饮料："/>
+                <TextBlock Name="tbAmount_YL" Foreground="Red" Text="0.00" Grid.Column="1"/>
+                <TextBlock Text="香烟：" Grid.Column="2"/>
+                <TextBlock Name="tbAmount_XY" Foreground="Red" Text="0.00" Grid.Column="3"/>
+                <TextBlock Text="其他：" Grid.Row="1"/>
+                <TextBlock Name="tbAmount_QT" Foreground="Red" Text="0.00" Grid.Row="1" Grid.Column="1"/>
+                <TextBlock Text="合计：" Grid.Row="1" Grid.Column="2"/>
+                <TextBlock Name="tbAmount" Foreground="Red" Text="0.00" Grid.Row="1" Grid.Column="3"/>
+            </Grid>
+            <ListView Name="lvDetail" Background="LightGray" ItemsSource="{Binding}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Background="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="160"/>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="80"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding Name}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Price}" HorizontalAlignment="Center" Grid.Column="1"/>
+                            <TextBlock Text="{Binding Num}" HorizontalAlignment="Center" Grid.Column="2"/>
+                            <TextBlock Text="{Binding Amount}" HorizontalAlignment="Center" Foreground="Red" Grid.Column="3"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListView>
+        </DockPanel>
+    </DockPanel>
+</Page>

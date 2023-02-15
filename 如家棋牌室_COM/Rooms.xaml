@@ -1,0 +1,82 @@
+﻿<Page x:Class="如家棋牌室_COM.Rooms"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d" FontFamily="Microsoft YaHei" Loaded="Page_Loaded">
+    <DockPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Top">
+            <TextBlock Name="tb_Time" FontSize="55" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Bottom">
+            <Button Name="btMembers" Width="150" Click="BtMembers_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/PNG/Members_64px.png"/>
+                    <TextBlock Text="会员"/>
+                </StackPanel>
+            </Button>
+            <Button Name="btPower_Swich" Width="150" Click="BtPower_Swich_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/PNG/Power_Swich_64px.png"/>
+                    <TextBlock Text="电源"/>
+                </StackPanel>
+            </Button>
+            <Button Name="btStatistic" Width="150" Click="BtStatistic_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/PNG/Stats_64px.png"/>
+                    <TextBlock Text="统计"/>
+                </StackPanel>
+            </Button>
+            <Button Name="btRetail" Width="150" Click="BtRetail_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/PNG/Retail_64px.png"/>
+                    <TextBlock Text="零售"/>
+                </StackPanel>
+            </Button>
+            <Button Name="btReload" Width="150" Click="BtReload_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/PNG/Reload_64px.png"/>
+                    <TextBlock Text="刷新"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <ListView Name="lvRooms" ItemsSource="{Binding}" Background="LightGray" MouseLeftButtonUp="LvRooms_MouseLeftButtonUp" HorizontalAlignment="Center">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Background="{Binding Background}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="35"/>
+                            <ColumnDefinition Width="35"/>
+                            <ColumnDefinition Width="35"/>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="42"/>
+                            <RowDefinition Height="42"/>
+                            <RowDefinition Height="42"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{Binding Rooms_Name}" FontSize="60" HorizontalAlignment="Center" Foreground="White" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
+                        <Image Source="{Binding Light_Static}" HorizontalAlignment="Center" Width="24" Height="24" Grid.Row="2"/>
+                        <Image Source="{Binding Members_Static}" HorizontalAlignment="Center" Width="24" Height="24" Grid.Row="2" Grid.Column="1"/>
+                        <Image Source="{Binding Clean_Static}" HorizontalAlignment="Center" Width="24" Height="24" Grid.Row="2" Grid.Column="2"/>
+
+                        <TextBlock Text="开始时间:" FontSize="16" Foreground="White" Grid.Column="3"/>
+                        <TextBlock Text="{Binding Start_Time}" FontSize="16" Foreground="White" Grid.Column="4"/>
+
+                        <TextBlock Text="结束时间:" FontSize="16" Foreground="White" Grid.Column="3" Grid.Row="1"/>
+                        <TextBlock Text="{Binding End_Time}" FontSize="16" Foreground="White" Grid.Column="4" Grid.Row="1"/>
+
+                        <TextBlock Text="消费时间:" FontSize="16" Foreground="White" Grid.Column="3" Grid.Row="2"/>
+                        <TextBlock Text="{Binding Expend_Time}" FontSize="16" Foreground="White" Grid.Column="4" Grid.Row="2"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListView>
+    </DockPanel>
+</Page>

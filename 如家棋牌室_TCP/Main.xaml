@@ -1,0 +1,9 @@
+﻿<Window x:Class="如家棋牌室_TCP.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        FontFamily="Microsoft YaHei" Loaded="Window_Loaded" WindowState="Maximized" Closed="Window_Closed" Icon="ooopic_1522561366.ico" Title="如家棋牌室">
+    <Frame Name="fMain" NavigationUIVisibility="Hidden"/>
+</Window>

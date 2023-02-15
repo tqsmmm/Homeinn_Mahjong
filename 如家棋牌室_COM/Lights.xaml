@@ -1,0 +1,18 @@
+﻿<Page x:Class="如家棋牌室_COM.Lights"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d" FontFamily="Microsoft YaHei" Loaded="Page_Loaded">
+    <DockPanel>
+        <StackPanel Height="60" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Bottom">
+            <Button Name="Bt_Close" Width="150" Click="Bt_Close_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/PNG/Close_64px.png"/>
+                    <TextBlock Text="关闭"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <DataGrid Name="dgLights" DockPanel.Dock="Left"/>
+    </DockPanel>
+</Page>
